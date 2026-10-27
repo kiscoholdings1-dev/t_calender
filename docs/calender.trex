@@ -4,20 +4,20 @@
           xsi:schemaLocation="http://www.tableau.com/xml/extension_manifest extension_manifest.xsd"
           manifest-version="0.1">
 
-  <dashboard-extension id="com.kisco.bigcalendar" extension-version="1.0.9">
+  <dashboard-extension id="com.kisco.calendar" extension-version="1.0.9">
     <default-locale>ko_KR</default-locale>
 
-    <name>Big Calendar Date Picker v3</name>
+    <name>Calendar Date Picker v3</name>
     <description>Large date range picker for Tableau parameters.</description>
 
     <author name="KiscoHoldings"
-            email="admin@example.com"
-            website="https://takyunhui.github.io/tableau_big_calender_v3/" />
+            email="kiscoholdings1@gmail.com"
+            website="https://kiscoholdings1-dev.github.io/t_calender/" />
 
     <min-api-version>1.7</min-api-version>
 
     <source-location>
-      <url>https://takyunhui.github.io/tableau_big_calender_v3/</url>
+      <url>https://kiscoholdings1-dev.github.io/t_calender/</url>
     </source-location>
 
     <!-- icon 필수라고 뜨니까 무조건 넣음 (1x1 PNG base64) -->
