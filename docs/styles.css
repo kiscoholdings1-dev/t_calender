@@ -1555,6 +1555,12 @@ body[data-layout-profile="wide"][data-selection-kind="range"] .quickBar {
   gap: 4px;
 }
 
+body[data-layout-profile="wide"][data-selection-kind="range"] .quickGroup--recent .quickBar {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  justify-items: start;
+}
+
 body[data-layout-profile="wide"][data-selection-kind="range"] .quickGroup--compare,
 body[data-layout-profile="wide"][data-selection-kind="range"] .quickGroup--quarter {
   display: grid;

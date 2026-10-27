@@ -1505,6 +1505,15 @@ function getThisWeekRange() {
   return { start: startOfDay(start), end: today };
 }
 
+function getLastWeekRange() {
+  const thisMonday = getThisWeekRange().start;
+  const start = new Date(thisMonday);
+  start.setDate(thisMonday.getDate() - 7);
+  const end = new Date(thisMonday);
+  end.setDate(thisMonday.getDate() - 1);
+  return { start, end };
+}
+
 function getThisMonthRange() {
   const today = startOfDay(new Date());
   const start = new Date(today.getFullYear(), today.getMonth(), 1);
@@ -1589,6 +1598,8 @@ function getQuickRange(settings, type) {
       return getYesterdayRange();
     case "thisWeek":
       return getThisWeekRange();
+    case "lastWeek":
+      return getLastWeekRange();
     case "thisMonth":
       return getThisMonthRange();
     case "ytd":
@@ -1950,6 +1961,7 @@ function updateQuickPanelVisibility() {
   const todayBtn = document.querySelector('[data-quick="today"]');
   const yesterdayBtn = document.querySelector('[data-quick="yesterday"]');
   const weekBtn = document.querySelector('[data-quick="thisWeek"]');
+  const lastWeekBtn = document.querySelector('[data-quick="lastWeek"]');
   const monthBtn = document.querySelector('[data-quick="thisMonth"]');
   const ytdBtn = document.querySelector('[data-quick="ytd"]');
   const lastMonthBtn = document.querySelector('[data-quick="lastMonth"]');
@@ -1971,6 +1983,7 @@ function updateQuickPanelVisibility() {
       monthBtn.style.display = "";
     }
     if (weekBtn) weekBtn.style.display = "none";
+    if (lastWeekBtn) lastWeekBtn.style.display = "none";
     if (ytdBtn) ytdBtn.style.display = "none";
     if (lastMonthBtn) lastMonthBtn.style.display = "none";
     if (lastYearSameMonthBtn) lastYearSameMonthBtn.style.display = "none";
@@ -1995,6 +2008,7 @@ function updateQuickPanelVisibility() {
       weekBtn.textContent = "금주 누계";
       weekBtn.style.display = "";
     }
+    if (lastWeekBtn) lastWeekBtn.style.display = "";
     if (ytdBtn) {
       ytdBtn.textContent = "금년 누계";
       ytdBtn.style.display = "";
@@ -2008,7 +2022,7 @@ function updateQuickPanelVisibility() {
       lastYearSameMonthBtn.style.display = "";
     }
     if (lastYearBtn) {
-      lastYearBtn.textContent = "전년 누계";
+      lastYearBtn.textContent = "전년 전체";
       lastYearBtn.style.display = "";
     }
     if (q1Btn) q1Btn.style.display = "";
